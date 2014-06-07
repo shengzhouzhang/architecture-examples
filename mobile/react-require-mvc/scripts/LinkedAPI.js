@@ -7,11 +7,11 @@ define(['LinkedIn'], function () {
 	});
 
 	var API = {
-		connections: function(cb) {
+		connections: function (cb) {
 			IN.API.Connections('me')
 				.fields(['picture-url', 'first-name', 'last-name', 'positions', 'location:(name)'])
-				.result(function(data) {
-					cb(data.values)
+				.result(function (data) {
+					cb(data.values);
 				});
 		}
 	};

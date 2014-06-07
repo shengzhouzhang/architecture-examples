@@ -26,7 +26,9 @@ define(['React', 'ConnectionStore'], function (React, Store) {
 
 		render: function() {
 			var people = this.state.connections.map(function(connection){
-				return (<Person connection={connection} />)
+				return (
+				  <Person connection={connection} />
+				);
 			});
 		  return (
 		      <div>

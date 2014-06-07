@@ -1,5 +1,5 @@
 require.config({
-  deps: ['JSX!main'],
+  deps: ['JSX!Main'],
 
   paths: {
     jQuery: '../libs/jquery-2.1.0.min',

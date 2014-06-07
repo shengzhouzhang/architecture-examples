@@ -23,6 +23,7 @@ define(['jQuery', './LinkedAPI', 'EventEmitter'], function ($, API, EventEmitter
 
 		loadData : function (callback) {
 
+
 			API.connections(function(data) {
 				connections = data;
 				this.emitEvent(CHANGE_EVENT);
