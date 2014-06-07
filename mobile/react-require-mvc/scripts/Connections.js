@@ -6,7 +6,7 @@ define(['React', 'ConnectionStore'], function (React, Store) {
 			connections: Store.getConnections() 
 		}; 
 	}
-	var Connections = React.createClass({
+	var People = React.createClass({
 
 		getInitialState: function () { 
 			return getConnections();
@@ -26,15 +26,9 @@ define(['React', 'ConnectionStore'], function (React, Store) {
 
 		render: function() {
 			var people = this.state.connections.map(function(connection){
-				return (
-				  <Person connection={connection} />
-				);
+				return (<Person connection={connection} />);
 			});
-		  return (
-		      <div>
-		      	{people}
-		      </div>
-		  );
+		  return (<div>{people}</div>);
 		}
 	});
 
@@ -43,25 +37,64 @@ define(['React', 'ConnectionStore'], function (React, Store) {
 		render: function() {
 		  return (
 		  		<div>
-		  			<div><h4>{this.props.connection.lastName} {this.props.connection.firstName}</h4></div>
-		  			<div><img src={this.props.connection.pictureUrl || ''} /></div>
-		  			<div><span>{!!this.props.connection.positions && !!this.props.connection.positions.values ? 
-		  				this.props.connection.positions.values[0].title : ''}</span></div>
-		  			<div><span>{
-		  					!!this.props.connection.positions && 
-		  					!!this.props.connection.positions.values && 
-		  					!!this.props.connection.positions.values[0].startDate ? 
-			  				this.props.connection.positions.values[0].startDate.month + '.' + 
-			  				this.props.connection.positions.values[0].startDate.year : ''}
+		  			<div>
+		  				<h4>
+		  					{this.props.connection.lastName} {this.props.connection.firstName}
+		  				</h4>
+		  			</div>
+		  			<div>
+		  				<img src={this.props.connection.pictureUrl || ''} />
+		  			</div>
+		  			<div>
+		  				<span>
+		  					{
+		  						!!this.props.connection.positions && !!this.props.connection.positions.values ? 
+		  						this.props.connection.positions.values[0].title : ''
+		  					}
+		  				</span>
+		  			</div>
+		  			<div>
+		  				<span>
+		  					{
+		  						!!this.props.connection.positions && 
+			  					!!this.props.connection.positions.values && 
+			  					!!this.props.connection.positions.values[0].startDate ? 
+				  				this.props.connection.positions.values[0].startDate.month + '.' + 
+				  				this.props.connection.positions.values[0].startDate.year : ''
+				  			}
 			  			 </span>
 			  		</div>
-		  			<div><span>{!!this.props.connection.positions && !!this.props.connection.positions.values ? 
-		  				this.props.connection.positions.values[0].company.connection : ''}</span></div>
-		  			<div><span>{!!this.props.connection.positions && !!this.props.connection.positions.values ? 
-		  				this.props.connection.positions.values[0].company.size : ''}</span></div>
-		  			<div><span>{!!this.props.connection.positions && !!this.props.connection.positions.values ? 
-		  				this.props.connection.positions.values[0].company.industry : ''}</span></div>
-		  			<div><span>{!!this.props.connection.location ? this.props.connection.location.name : ''}</span></div>
+		  			<div>
+		  				<span>
+		  					{
+		  						!!this.props.connection.positions && !!this.props.connection.positions.values ? 
+		  						this.props.connection.positions.values[0].company.connection : ''
+		  					}
+		  				</span>
+		  			</div>
+		  			<div>
+		  				<span>
+		  					{
+		  						!!this.props.connection.positions && !!this.props.connection.positions.values ? 
+		  						this.props.connection.positions.values[0].company.size : ''
+		  					}
+		  				</span>
+		  			</div>
+		  			<div>
+		  				<span>
+		  					{
+		  						!!this.props.connection.positions && !!this.props.connection.positions.values ? 
+		  						this.props.connection.positions.values[0].company.industry : ''
+		  					}
+		  				</span>
+		  			</div>
+		  			<div>
+		  				<span>
+		  					{
+		  						!!this.props.connection.location ? this.props.connection.location.name : ''
+		  					}
+		  				</span>
+		  			</div>
 		  		</div>
 		  );
 		}
@@ -70,7 +103,7 @@ define(['React', 'ConnectionStore'], function (React, Store) {
 	return {
 		create: function(container){
 			React.renderComponent(
-				<Connections />, 
+				<People />, 
 				container
 			);
 		}
