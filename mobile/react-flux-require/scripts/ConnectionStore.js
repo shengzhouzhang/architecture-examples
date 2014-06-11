@@ -1,8 +1,9 @@
-define(['jQuery', './LinkedAPI', 'EventEmitter'], function ($, API, EventEmitter) {
+define(['jQuery', 'AppDispatcher', 'EventEmitter', 'Actions'], 
+       function ($, AppDispatcher, EventEmitter, Actions) {
 	'use strict';
 
 	var base = new EventEmitter(),
-		CHANGE_EVENT = 'change',
+		CHANGE_EVENT = 'CONNECTIONS_CHANGED',
 		connections = [];
 
 	var store = $.extend({
@@ -21,18 +22,19 @@ define(['jQuery', './LinkedAPI', 'EventEmitter'], function ($, API, EventEmitter
 			this.removeListener(CHANGE_EVENT, callback);
 		},
 
-		loadData : function (callback) {
-
-
-			API.connections(function(data) {
-				connections = data;
-				this.emitEvent(CHANGE_EVENT);
-
-				if (!!callback) { callback(); }
-			}.bind(this));
-		}
-
 	}, base);
+
+	AppDispatcher.register(function(payload) { 
+	  var action = payload.action; 
+
+	  switch(action.actionType) { 
+	    case Actions.CONNECTIONS_LOADED: 
+	      connections = action.connections; 
+	      store.emitEvent(CHANGE_EVENT); 
+	      break; 
+	  }
+	  return true;
+	});
 
 	return store;
  });
