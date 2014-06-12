@@ -10,15 +10,7 @@ require(['JSX!Connections', './LinkedAPI', 'Actions'],
 
 		console.log('wait for loading data.');
 
-		setTimeout(function () {
-
-			console.log('loading.');
-
-			API.connections(function (connections) {
-				Actions.updateConnections(connections);
-			});
-
-		}, 2000);
+		Actions.documnetReady();
 	});
  });
 

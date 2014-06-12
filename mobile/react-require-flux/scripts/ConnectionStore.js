@@ -1,5 +1,5 @@
-define(['jQuery', 'AppDispatcher', 'EventEmitter', 'Actions'], 
-       function ($, AppDispatcher, EventEmitter, Actions) {
+define(['jQuery', 'EventEmitter', 'Actions'], 
+       function ($, EventEmitter, Actions) {
 	'use strict';
 
 	var base = new EventEmitter(),
@@ -24,7 +24,7 @@ define(['jQuery', 'AppDispatcher', 'EventEmitter', 'Actions'],
 
 	}, base);
 
-	AppDispatcher.register(function(payload) { 
+	Actions.register(function(payload) { 
 	  var action = payload.action; 
 
 	  switch(action.actionType) { 

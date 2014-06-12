@@ -1,4 +1,4 @@
-define(['LinkedIn'], function () {
+define(['Actions', 'LinkedIn'], function (Actions) {
 	'use strict';
 
 	IN.init({
@@ -15,6 +15,25 @@ define(['LinkedIn'], function () {
 				});
 		}
 	};
+
+	Actions.register(function(payload) { 
+	  var action = payload.action; 
+
+	  switch(action.actionType) { 
+	    case Actions.DOCUMENT_READY: 
+
+	    	setTimeout(function () {
+
+		    	API.connections(function (connections) {
+						Actions.updateConnections(connections);
+					});
+
+				}, 2000);
+
+	      break; 
+	  }
+	  return true;
+	});
 
 	return API;
 });
