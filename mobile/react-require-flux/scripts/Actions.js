@@ -4,18 +4,28 @@ define(['jQuery', 'Dispatcher'], function ($, Dispatcher) {
   var actions = {
 
     CONNECTIONS_LOADED: 'CONNECTIONS_LOADED',
-    DOCUMENT_READY: 'DOCUMENT_READY',
+    COMPONENTS_READY: 'COMPONENTS_READY',
+    LOGIN: 'LOGIN',
 
     updateConnections: function(connections) {
+      console.log('Update Connections');
       Dispatcher.handleServerAction({
         actionType: actions.CONNECTIONS_LOADED,
         connections: connections
       });
     },
 
-    documnetReady: function() {
+    componentsReady: function() {
+      console.log('Initialed Components');
       Dispatcher.handleViewAction({
-        actionType: actions.DOCUMENT_READY
+        actionType: actions.COMPONENTS_READY
+      });
+    },
+
+    login: function() {
+      console.log('User Logined');
+      Dispatcher.handleViewAction({
+        actionType: actions.LOGIN
       });
     },
 

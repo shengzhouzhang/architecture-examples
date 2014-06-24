@@ -20,7 +20,7 @@ define(['Actions', 'LinkedIn'], function (Actions) {
 	  var action = payload.action; 
 
 	  switch(action.actionType) { 
-	    case Actions.DOCUMENT_READY: 
+	    case Actions.LOGIN: 
 
 	    	setTimeout(function () {
 
