@@ -1,5 +1,5 @@
-require(['JSX!Connections', 'Actions'], 
-        function (Connections, API, Actions) {
+require(['JSX!Connections', 'Actions', 'LinkedAPI'], 
+        function (Connections, Actions) {
 	'use strict';
 
 	Connections.create(document.body);

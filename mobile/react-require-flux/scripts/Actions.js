@@ -8,7 +8,6 @@ define(['jQuery', 'Dispatcher'], function ($, Dispatcher) {
     LOGIN: 'LOGIN',
 
     updateConnections: function(connections) {
-      console.log('Update Connections');
       Dispatcher.handleServerAction({
         actionType: actions.CONNECTIONS_LOADED,
         connections: connections
@@ -16,14 +15,12 @@ define(['jQuery', 'Dispatcher'], function ($, Dispatcher) {
     },
 
     componentsReady: function() {
-      console.log('Initialed Components');
       Dispatcher.handleViewAction({
         actionType: actions.COMPONENTS_READY
       });
     },
 
     login: function() {
-      console.log('User Logined');
       Dispatcher.handleViewAction({
         actionType: actions.LOGIN
       });

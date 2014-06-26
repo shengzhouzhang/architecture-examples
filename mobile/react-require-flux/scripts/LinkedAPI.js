@@ -6,6 +6,10 @@ define(['Actions', 'LinkedIn'], function (Actions) {
 		authorize: true
 	});
 
+	IN.Event.on(IN, 'auth', function () {
+		Actions.login();
+	});
+
 	var API = {
 		connections: function (cb) {
 			IN.API.Connections('me')
