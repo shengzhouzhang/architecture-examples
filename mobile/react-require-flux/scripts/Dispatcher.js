@@ -1,5 +1,10 @@
-define(['jQuery'], function ($) {
+define(['jQuery'], 
+       function ($) {
   'use strict';
+
+  /**
+   * Message General Object
+   */
 
   var _callbacks = [];
   var _promises = [];

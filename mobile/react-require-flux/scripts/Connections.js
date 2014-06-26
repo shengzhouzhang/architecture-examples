@@ -1,6 +1,12 @@
-define(['React', 'ConnectionStore'], function (React, Store) {
+define(['React', 'ConnectionStore'], 
+       function (React, Store) {
 	'use strict';
 	
+	/**
+   * View, Present Connections Data
+   * Show Changes
+   */
+
 	function getConnections() { 
 		return { 
 			connections: Store.getConnections() 

@@ -1,5 +1,11 @@
-define(['Actions', 'LinkedIn'], function (Actions) {
+define(['Actions', 'LinkedIn'], 
+       function (Actions) {
 	'use strict';
+
+	/**
+   * Deal with LinkedIn API
+   * User Login and Load Connections data
+   */
 
 	IN.init({
 		api_key: '75eym30rv08bvx',

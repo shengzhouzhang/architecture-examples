@@ -1,5 +1,10 @@
-define(['jQuery', 'Dispatcher'], function ($, Dispatcher) {
+define(['jQuery', 'Dispatcher'], 
+       function ($, Dispatcher) {
   'use strict';
+
+  /**
+   * Sent Messages between Components
+   */
 
   var actions = {
 
