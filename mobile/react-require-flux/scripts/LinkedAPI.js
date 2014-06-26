@@ -6,6 +6,7 @@ define(['Actions', 'LinkedIn'], function (Actions) {
 		authorize: true
 	});
 
+	// login event
 	IN.Event.on(IN, 'auth', function () {
 		Actions.login();
 	});
@@ -20,6 +21,7 @@ define(['Actions', 'LinkedIn'], function (Actions) {
 		}
 	};
 
+	// register login event
 	Actions.register(function(payload) { 
 	  var action = payload.action; 
 

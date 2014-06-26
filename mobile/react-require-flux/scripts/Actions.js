@@ -7,6 +7,7 @@ define(['jQuery', 'Dispatcher'], function ($, Dispatcher) {
     COMPONENTS_READY: 'COMPONENTS_READY',
     LOGIN: 'LOGIN',
 
+    // call after get new connections
     updateConnections: function(connections) {
       Dispatcher.handleServerAction({
         actionType: actions.CONNECTIONS_LOADED,
@@ -14,12 +15,14 @@ define(['jQuery', 'Dispatcher'], function ($, Dispatcher) {
       });
     },
 
+    // call after all components are initialed
     componentsReady: function() {
       Dispatcher.handleViewAction({
         actionType: actions.COMPONENTS_READY
       });
     },
 
+    // call after login
     login: function() {
       Dispatcher.handleViewAction({
         actionType: actions.LOGIN
