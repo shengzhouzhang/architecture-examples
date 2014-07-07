@@ -4,7 +4,7 @@ Play with different JavaScript frameworks and thoughts.
 
 Front-End Components Overview:
 
-1. MV*
+MV*
     Models
     Collections
     Views
@@ -15,20 +15,20 @@ Front-End Components Overview:
       Properties
       Initial State
       Intermediate State
-2. Controller
+Controller
       Router
       Events
       Event Dispatcher
       Event Handler
       Main.js / App.js
-3. Storages
+Storages
       Local Cache
       Local Database
       Online / Offline Support
       Backend Storage APIs
-4. Security
+Security
     App Authority Rules
     Web Security
-5. Utility Libraries
-6. Backend APIs / Third Party APIs
-7. Unit Tests
+Utility Libraries
+Backend APIs / Third Party APIs
+Unit Tests
