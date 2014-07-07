@@ -5,10 +5,10 @@ Play with different JavaScript frameworks and thoughts.
 Front-End Components Overview:
 
 1. MV*
-    Models,
-    Collections,
-    Views,
-      Templates,
+    Models
+    Collections
+    Views
+      Templates
       Style
       Responsive
     View Models
