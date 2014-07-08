@@ -9,7 +9,7 @@ define(['Actions', 'LinkedIn'],
 
 	IN.init({
 		api_key: '75eym30rv08bvx',
-		authorize: true
+		authorize: false
 	});
 
 	// login event

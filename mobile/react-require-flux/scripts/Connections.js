@@ -107,10 +107,15 @@ define(['React', 'ConnectionStore'],
 	});
 
 	return {
-		create: function(container){
+
+		initial: function(container) {
+      this.container_ = container;
+    },
+
+		render: function(){
 			React.renderComponent(
 				<People />, 
-				container
+				this.container_
 			);
 		}
 	};

@@ -1,5 +1,5 @@
-require(['JSX!Connections', 'Actions', 'LinkedAPI'], 
-        function (Connections, Actions) {
+require(['Router', 'LinkedAPI'], 
+        function (Router) {
 	'use strict';
 
   /**
@@ -7,8 +7,7 @@ require(['JSX!Connections', 'Actions', 'LinkedAPI'],
    * Emit Ready Event when Components Ready
    */
 
-	Connections.create(document.body);
-
-	Actions.componentsReady();
-
+  Router.initial();
+	
+  Router.render('Login');
  });
