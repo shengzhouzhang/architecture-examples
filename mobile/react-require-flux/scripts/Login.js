@@ -1,9 +1,19 @@
-define(['./LinkedAPI', 'Actions'], 
-        function (Connections, API, Actions) {
-	'use strict';
+define(['React'], 
+       function (React) {
+  'use strict';
 
-	IN.Event.on(IN, 'auth', function () {
-		Actions.login();
-	});
- });
+  return {
 
+    initial: function(container) {
+      this.container_ = container;
+    },
+
+    render: function() {
+
+      React.renderComponent(
+        <script type="in/Login">Login</script>, 
+        this.container_
+      );
+    }
+  };
+});

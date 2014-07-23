@@ -1,6 +1,12 @@
-define(['React', 'ConnectionStore'], function (React, Store) {
+define(['React', 'ConnectionStore'], 
+       function (React, Store) {
 	'use strict';
 	
+	/**
+   * View, Present Connections Data
+   * Show Changes
+   */
+
 	function getConnections() { 
 		return { 
 			connections: Store.getConnections() 
@@ -101,10 +107,15 @@ define(['React', 'ConnectionStore'], function (React, Store) {
 	});
 
 	return {
-		create: function(container){
+
+		initial: function(container) {
+      this.container_ = container;
+    },
+
+		render: function(){
 			React.renderComponent(
 				<People />, 
-				container
+				this.container_
 			);
 		}
 	};

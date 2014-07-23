@@ -1,5 +1,10 @@
-define(['jQuery', 'Dispatcher'], function ($, Dispatcher) {
+define(['jQuery', 'Dispatcher'], 
+       function ($, Dispatcher) {
   'use strict';
+
+  /**
+   * Sent Messages between Components
+   */
 
   var actions = {
 
@@ -7,23 +12,23 @@ define(['jQuery', 'Dispatcher'], function ($, Dispatcher) {
     COMPONENTS_READY: 'COMPONENTS_READY',
     LOGIN: 'LOGIN',
 
+    // call after get new connections
     updateConnections: function(connections) {
-      console.log('Update Connections');
       Dispatcher.handleServerAction({
         actionType: actions.CONNECTIONS_LOADED,
         connections: connections
       });
     },
 
+    // call after all components are initialed
     componentsReady: function() {
-      console.log('Initialed Components');
       Dispatcher.handleViewAction({
         actionType: actions.COMPONENTS_READY
       });
     },
 
+    // call after login
     login: function() {
-      console.log('User Logined');
       Dispatcher.handleViewAction({
         actionType: actions.LOGIN
       });

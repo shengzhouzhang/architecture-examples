@@ -1,9 +1,20 @@
-define(['Actions', 'LinkedIn'], function (Actions) {
+define(['Actions', 'LinkedIn'], 
+       function (Actions) {
 	'use strict';
+
+	/**
+   * Deal with LinkedIn API
+   * User Login and Load Connections data
+   */
 
 	IN.init({
 		api_key: '75eym30rv08bvx',
-		authorize: true
+		authorize: false
+	});
+
+	// login event
+	IN.Event.on(IN, 'auth', function () {
+		Actions.login();
 	});
 
 	var API = {
@@ -16,6 +27,7 @@ define(['Actions', 'LinkedIn'], function (Actions) {
 		}
 	};
 
+	// register login event
 	Actions.register(function(payload) { 
 	  var action = payload.action; 
 

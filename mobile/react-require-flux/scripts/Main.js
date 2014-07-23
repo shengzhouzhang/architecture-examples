@@ -1,9 +1,13 @@
-require(['JSX!Connections', 'Actions'], 
-        function (Connections, API, Actions) {
+require(['Router', 'LinkedAPI'], 
+        function (Router) {
 	'use strict';
 
-	Connections.create(document.body);
+  /**
+   * Load and Initial Components.
+   * Emit Ready Event when Components Ready
+   */
 
-	Actions.componentsReady();
+  Router.initial();
+	
+  Router.render('Login');
  });
-

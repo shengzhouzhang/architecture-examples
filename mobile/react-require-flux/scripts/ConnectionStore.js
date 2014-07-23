@@ -24,6 +24,7 @@ define(['jQuery', 'EventEmitter', 'Actions'],
 
 	}, base);
 
+	// emit event after data changed
 	Actions.register(function(payload) { 
 	  var action = payload.action; 
 
