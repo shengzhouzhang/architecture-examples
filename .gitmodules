@@ -1,0 +1,3 @@
+[submodule "mobile/backbone-react-require-flux"]
+	path = mobile/backbone-react-require-flux
+	url = https://github.com/szha246/backbone-react-require-flux.git
