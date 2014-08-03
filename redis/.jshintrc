@@ -1,0 +1,32 @@
+{
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "freeze": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "noempty": true,
+  "nonew": true,
+  "undef": true,
+  "strict": true,
+  "trailing": true,
+
+  "quotmark": "single",
+  "maxlen": 80,
+  "indent": 2,
+
+  "eqnull": true,
+  "expr": true,
+  "esnext": true,
+
+  "browser": true,
+  "node": true,
+
+  "predef": [
+    "define",
+    "__dirname"
+  ]
+}
