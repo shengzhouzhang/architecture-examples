@@ -6,6 +6,8 @@
     "express": "~4.7.2",
     "redis": "~0.11.0",
     "amd-loader": "0.0.5",
-    "mocha": "~1.21.3"
+    "mocha": "~1.21.3",
+    "body-parser": "~1.5.2",
+    "supertest": "~0.13.0"
   }
 }
