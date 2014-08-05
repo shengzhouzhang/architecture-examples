@@ -7,7 +7,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
     http = require('http'),
-    subscriber = require('./routes/subscriber').router;
+    subscriber = require('./routers/subscriber').router;
 
 var app = express();
 
