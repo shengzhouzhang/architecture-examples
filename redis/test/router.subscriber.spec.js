@@ -44,7 +44,7 @@ describe('subscriber', function () {
     .expect(200)
     .end(function(err, res){
       if (err) { return done(err); }
-      assert.deepEqual(JSON.parse(res.body), subscriber);
+      assert.deepEqual(res.body, subscriber);
       done();
     });
   });
@@ -57,7 +57,7 @@ describe('subscriber', function () {
     .expect(200)
     .end(function(err, res){
       if (err) { return done(err); }
-      assert.deepEqual(JSON.parse(res.body[email]), subscriber);
+      assert.deepEqual(res.body, [subscriber]);
       done();
     });
   });

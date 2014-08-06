@@ -31,14 +31,22 @@ define(function(require, exports) {
 
     redis.getSubscriber(email, function (err, data) {
       if (!!err) { throw new Error(err); }
-      res.json(data || {});
+      data = !!data ? JSON.parse(data) : {};
+      res.json(data);
     }); 
   });
 
   router.get('/', function(req, res) {
     redis.getAllSubscribers(function (err, data) {
+      var result = [], i;
       if (!!err) { throw new Error(err); }
-      res.json(data || {});
+      
+      for (i in data) {
+        if (data.hasOwnProperty(i)) {
+          result.push(JSON.parse(data[i]));
+        }
+      }
+      res.json(result);
     }); 
   });
 
