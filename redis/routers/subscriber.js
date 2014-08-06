@@ -5,13 +5,8 @@ define(function(require, exports) {
       express = require('express'),
       router = express.Router();
 
-  router.use(function (req, res, next) {
-    next();
-  });
 
   router.post('/:email', function (req, res) {
-    console.log('post');
-
     var email = req.params.email,
         subscriber = req.body.subscriber;
 
