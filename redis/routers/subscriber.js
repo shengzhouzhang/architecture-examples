@@ -3,43 +3,54 @@ define(function(require, exports) {
 
   var redis = require('../database/redis'),
       express = require('express'),
-      router = express.Router();
+      router = express.Router(),
+      status = {};
 
-  var internal = function (err, result, res) {
-    if (!!err) { 
-      res.status(500).json(null);
-      return false;
-    }
-    return true;
+  var setStatus = function (code, message) {
+    status.code = code;
+    status.message = message;
+  };
+
+  var clearStatus = function () {
+    status = {};
   };
 
   router.post('/:email', function (req, res) {
     var email = req.params.email,
         subscriber = req.body.subscriber;
 
+    var validate = function () {
+
+      var isValid = !!subscriber.firstName && 
+                    !!subscriber.lastName;
+
+      if(!isValid) { setStatus(400); }
+
+      return isValid;
+    };
+
+    var respond = function () {
+      res.status(status.code).json(status.message);  
+      clearStatus();
+    };
+
+    if (!validate()) { 
+      respond(); 
+      return;
+    }
+
     redis.addSubscriber(email, subscriber, 
       function (err, result) {
-        
-      var conflict = function (err, result, res) {
-        if(result !== 1) {
-          res.status(409).json({
-            message: 'Email ' + email + ' already exists in database.'
-          });  
-          return false;
-        }
-        return true;
-      },
-      created = function (err, result, res) {
-        res.status(201).json({
-          email: email,
-          subscriber: subscriber
-        })
-        return true;
-      };
-        
-      [internal, conflict, created].every(function (fn) {
-        return fn(err, result, res);
-      });
+
+      if (!!err) { 
+        setStatus(500);
+      } else if(result !== 1) {
+        setStatus(304);
+      } else {
+        setStatus(201);
+      }
+
+      respond();  
     });
   });
 

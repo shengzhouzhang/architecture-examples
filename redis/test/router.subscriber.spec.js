@@ -29,7 +29,7 @@ describe('subscriber', function () {
     request(app)
     .post('/subscribers/' + email)
     .send({'subscriber': subscriber})
-    .expect(200)
+    .expect(201)
     .end(function(err, res){
       if (err) { return done(err); }
       done();
