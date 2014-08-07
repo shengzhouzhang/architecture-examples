@@ -11,9 +11,21 @@ define(function(require, exports) {
         subscriber = req.body.subscriber;
 
     redis.addSubscriber(email, subscriber, 
-      function (err, data) {
-      if (!!err) { throw new Error(err); }
-      res.json({});
+      function (err, result) {
+      if (!!err) { 
+        res.status(500).json(null);
+        return;
+      }
+      if(result !== 1) {
+        res.status(409).json({
+          message: 'Email ' + email + ' already exists in database.'
+        });  
+        return;
+      }
+      res.status(201).json({
+        email: email,
+        subscriber: subscriber
+      })
     });
   });
 
