@@ -5,6 +5,13 @@ define(function(require, exports) {
       express = require('express'),
       router = express.Router();
 
+  var internal = function (err, result, res) {
+    if (!!err) { 
+      res.status(500).json(null);
+      return false;
+    }
+    return true;
+  };
 
   router.post('/:email', function (req, res) {
     var email = req.params.email,
@@ -12,20 +19,27 @@ define(function(require, exports) {
 
     redis.addSubscriber(email, subscriber, 
       function (err, result) {
-      if (!!err) { 
-        res.status(500).json(null);
-        return;
-      }
-      if(result !== 1) {
-        res.status(409).json({
-          message: 'Email ' + email + ' already exists in database.'
-        });  
-        return;
-      }
-      res.status(201).json({
-        email: email,
-        subscriber: subscriber
-      })
+        
+      var conflict = function (err, result, res) {
+        if(result !== 1) {
+          res.status(409).json({
+            message: 'Email ' + email + ' already exists in database.'
+          });  
+          return false;
+        }
+        return true;
+      },
+      created = function (err, result, res) {
+        res.status(201).json({
+          email: email,
+          subscriber: subscriber
+        })
+        return true;
+      };
+        
+      [internal, conflict, created].every(function (fn) {
+        return fn(err, result, res);
+      });
     });
   });
 
