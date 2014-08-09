@@ -7,7 +7,7 @@ var assert = require('assert'),
     express = require('express'),
     request = require('supertest'),
     bodyParser = require('body-parser'),
-    router = require('../routers/subscriber').router;
+    router = require('../routers/subscriber.router').router;
 
 var email = 'steven.shengzhou@gmail.com',
     subscriber = {
@@ -31,8 +31,7 @@ describe('subscriber', function () {
     .send({'subscriber': subscriber})
     .expect(201)
     .end(function(err, res){
-      if (err) { return done(err); }
-      done();
+      done(err);
     });
   });
 
@@ -43,9 +42,8 @@ describe('subscriber', function () {
     .get('/subscribers/' + email)
     .expect(200)
     .end(function(err, res){
-      if (err) { return done(err); }
       assert.deepEqual(res.body, subscriber);
-      done();
+      done(err);
     });
   });
 
@@ -56,9 +54,8 @@ describe('subscriber', function () {
     .get('/subscribers')
     .expect(200)
     .end(function(err, res){
-      if (err) { return done(err); }
       assert.deepEqual(res.body, [subscriber]);
-      done();
+      done(err);
     });
   });
 
@@ -69,8 +66,7 @@ describe('subscriber', function () {
     .delete('/subscribers/' + email)
     .expect(200)
     .end(function(err, res){
-      if (err) { return done(err); }
-      done();
+      done(err);
     });
   });
 });

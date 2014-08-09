@@ -14,11 +14,26 @@ define(function(require, exports) {
   };
 
   var getSubscriber = function (email, cb) {
-    client.hget(DATA_SET, email, cb);
+    client.hget(DATA_SET, email, function (err, reply) {
+      if(!!reply) {
+        reply = JSON.parse(reply);
+      }
+      cb(err, reply);
+    });
   };
 
   var getAllSubscribers = function (cb) {
-    client.hgetall(DATA_SET, cb);
+    client.hgetall(DATA_SET, function (err, reply) {
+      if(!!reply) {
+        var result = [], item;
+        for (item in reply) {
+          if (reply.hasOwnProperty(item)) {
+            result.push(JSON.parse(reply[item]));
+          }
+        }
+      }
+      cb(err, result);
+    });
   };
 
   var close = function () {

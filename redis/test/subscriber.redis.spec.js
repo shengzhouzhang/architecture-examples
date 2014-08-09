@@ -4,7 +4,7 @@
 require('amd-loader');
 
 var assert = require("assert"),
-    redis = require('../database/redis');
+    redis = require('../database/subscriber.redis');
 
 
 var email = 'steven.shengzhou@gmail.com',
@@ -33,7 +33,7 @@ describe('redis', function(){
 
       var cb = function (err, reply) {
         assert.equal(err, null);
-        assert.deepEqual(subscriber, JSON.parse(reply[email]));
+        assert.deepEqual(subscriber, reply[0]);
         done();
       };
 
@@ -45,7 +45,7 @@ describe('redis', function(){
 
       var cb = function (err, reply) {
         assert.equal(err, null);
-        assert.deepEqual(subscriber, JSON.parse(reply));
+        assert.deepEqual(subscriber, reply);
         done();
       };
 
