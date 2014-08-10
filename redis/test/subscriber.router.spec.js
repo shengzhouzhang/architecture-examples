@@ -7,7 +7,7 @@ var assert = require('assert'),
     express = require('express'),
     request = require('supertest'),
     bodyParser = require('body-parser'),
-    router = require('../routers/subscriber.router').router;
+    router = require('../routers/subscriber.routes.facade').router;
 
 var email = 'steven.shengzhou@gmail.com',
     subscriber = {
