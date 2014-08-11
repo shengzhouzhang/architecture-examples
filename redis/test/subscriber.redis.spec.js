@@ -3,7 +3,7 @@
 
 require('amd-loader');
 
-var assert = require("assert"),
+var assert = require('assert'),
     redis = require('../database/subscriber.redis');
 
 
@@ -69,7 +69,7 @@ describe('redis', function(){
 
       redis.getAllSubscribers(function (err, data) {
         assert.equal(err, null);
-        assert.equal(data, null);
+        assert.deepEqual(data, []);
         done();
       });
     });

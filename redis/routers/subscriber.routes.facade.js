@@ -3,14 +3,24 @@ define(function(require, exports) {
 
   var express = require('express'),
       extend = require('extend'),
+      logger = require('../util/log').logger,
       routes = extend(
         true, 
         {},
-        require('./subscriber/subscriber.routes.post').routes,
-        require('./subscriber/subscriber.routes.delete').routes,
-        require('./subscriber/subscriber.routes.get').routes
+        require('./subscriber.routes/subscriber.routes.post').routes,
+        require('./subscriber.routes/subscriber.routes.delete').routes,
+        require('./subscriber.routes/subscriber.routes.get').routes
       ),
       router = express.Router();
+
+  router.use(function (req, res, next) {
+    var url = req.url,
+        subscriber = req.body.subscriber,
+        info = [];
+
+    logger.info(req.ip, req.method, url);
+    next();
+  });
 
   router.post('/:email', routes.addSubscriber);
 

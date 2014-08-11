@@ -24,8 +24,8 @@ define(function(require, exports) {
 
   var getAllSubscribers = function (cb) {
     client.hgetall(DATA_SET, function (err, reply) {
+      var result = [], item;
       if(!!reply) {
-        var result = [], item;
         for (item in reply) {
           if (reply.hasOwnProperty(item)) {
             result.push(JSON.parse(reply[item]));

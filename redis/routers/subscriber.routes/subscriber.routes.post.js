@@ -3,9 +3,29 @@ define(function(require, exports) {
 
   var redis = require('../../database/subscriber.redis');
 
+  var _validateAddSubcriber = function (email, subscriber) {
+    var isValid = true;
+
+    if(!email) { isValid = false; }
+    if(!subscriber || 
+       !subscriber.email || 
+       !subscriber.firstName || 
+       !subscriber.lastName) {
+      isValid = false;
+    }
+
+    return isValid;
+  };
+
   var addSubscriber = function (req, res) {
     var email = req.params.email,
         subscriber = req.body.subscriber;
+
+    if(!_validateAddSubcriber(email, subscriber)) { 
+      res.status(400);
+      res.json(null);
+      return; 
+    }
 
     redis.addSubscriber(email, subscriber, 
       function (err, result) {
