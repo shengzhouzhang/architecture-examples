@@ -1,12 +1,16 @@
 define(function(require, exports) {
   'use strict';
 
-  var redis = require('../../database/subscriber.redis');
+  var validator = require('validator'),
+      redis = require('../../database/subscriber.redis');
 
   var _validateAddSubcriber = function (email, subscriber) {
     var isValid = true;
 
-    if(!email) { isValid = false; }
+    if(!validator.isEmail(email)) { 
+      isValid = false; 
+    }
+        
     if(!subscriber || 
        !subscriber.email || 
        !subscriber.firstName || 

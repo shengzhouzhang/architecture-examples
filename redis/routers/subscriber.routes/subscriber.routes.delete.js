@@ -1,10 +1,17 @@
 define(function(require, exports) {
   'use strict';
 
-  var redis = require('../../database/subscriber.redis');
+  var validator = require('validator'),
+      redis = require('../../database/subscriber.redis');
 
   var deleteSubscriber = function (req, res) {
     var email = req.params.email;
+
+    if(!validator.isEmail(email)) {
+      res.status(400);
+      res.json(null);
+      return;
+    }
 
     redis.deleteSubscriber(email, function (err, result) {
       

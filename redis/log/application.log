@@ -1,0 +1,8 @@
+{"level":"info","message":"127.0.0.1 POST /steven.shengzhou@gmail.com","timestamp":"2014-08-12T10:21:42.377Z"}
+{"level":"info","message":"127.0.0.1 GET /steven.shengzhou@gmail.com","timestamp":"2014-08-12T10:21:42.388Z"}
+{"level":"info","message":"127.0.0.1 GET /","timestamp":"2014-08-12T10:21:42.392Z"}
+{"level":"info","message":"127.0.0.1 DELETE /steven.shengzhou@gmail.com","timestamp":"2014-08-12T10:21:42.394Z"}
+{"level":"info","message":"127.0.0.1 POST /steven.shengzhou@gmail.com","timestamp":"2014-08-12T10:22:46.384Z"}
+{"level":"info","message":"127.0.0.1 GET /steven.shengzhou@gmail.com","timestamp":"2014-08-12T10:22:46.397Z"}
+{"level":"info","message":"127.0.0.1 GET /","timestamp":"2014-08-12T10:22:46.400Z"}
+{"level":"info","message":"127.0.0.1 DELETE /steven.shengzhou@gmail.com","timestamp":"2014-08-12T10:22:46.402Z"}

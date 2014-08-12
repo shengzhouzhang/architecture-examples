@@ -15,8 +15,7 @@ define(function(require, exports) {
 
   router.use(function (req, res, next) {
     var url = req.url,
-        subscriber = req.body.subscriber,
-        info = [];
+        subscriber = req.body.subscriber;
 
     logger.info(req.ip, req.method, url);
     next();
