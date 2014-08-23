@@ -15,22 +15,57 @@ body {
   bottom: 0;
   z-index: 100;
   display: block;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.26);
   background-color: #00838f;
 }
 #main-container .extra {
   position: fixed;
-  left: 0;
+  left: -283px;
   bottom: 0;
-  width: 358px;
+  width: 283px;
   height: 100%;
+  z-index: -100;
   background-color: #e0f7fa;
+  transition: left 0.3s ease-in;
 }
 #main-container .main-page {
   height: 100%;
   z-index: 100;
-  background-color: grey;
+  margin-left: 77px;
+  background-color: white;
+  transition: margin-left 0.3s ease-in;
 }
 #main-container .main-page .header {
-  height: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  padding: 0 16px 0 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   background-color: #00bcd4;
+}
+#main-container .main-page .header .header-title {
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 64px;
+  margin: 0 20px;
+  white-space: nowrap;
+}
+#main-container .main-page .grid-container {
+  padding: 100px 15px;
+}
+#main-container .main-page .grid-container .grid-col {
+  width: 250px;
+  height: 250px;
+  display: inline-block;
+  background-color: #eee;
+}
+@media (min-width: 1400px) {
+  #main-container .main-page {
+    margin-left: 360px;
+  }
+  #main-container .extra {
+    left: 77px;
+  }
 }
