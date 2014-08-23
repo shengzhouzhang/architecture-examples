@@ -2,4 +2,35 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+#main-container {
+  height: 100%;
+}
+#main-container .sidebar {
+  width: 77px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  display: block;
+  background-color: #00838f;
+}
+#main-container .extra {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 358px;
+  height: 100%;
+  background-color: #e0f7fa;
+}
+#main-container .main-page {
+  height: 100%;
+  z-index: 100;
+  background-color: grey;
+}
+#main-container .main-page .header {
+  height: 50px;
+  background-color: #00bcd4;
 }
