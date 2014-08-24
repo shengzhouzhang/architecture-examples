@@ -14,7 +14,6 @@ body {
   bottom: 0;
   width: 320px;
   height: 100%;
-  z-index: -100;
   background-color: #0097a7;
 }
 #main-container .notice-page .header {
@@ -22,11 +21,12 @@ body {
   height: 64px;
 }
 #main-container .notice-page .header .header-title {
-  color: white;
-  font-size: 20px;
-  line-height: 64px;
-  white-space: nowrap;
   padding: 0 24px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 64px;
+  color: white;
+  text-transform: capitalize;
   border-bottom: 1px solid #00bcd4;
 }
 #main-container .notice-page .notice-content {
@@ -37,9 +37,37 @@ body {
   border-radius: 2px;
   background-color: #eee;
 }
+#main-container .notice-page .toolbar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  line-height: 56px;
+  color: white;
+  border-top: 1px solid white;
+}
+#main-container .notice-page .toolbar button {
+  height: 56px;
+  padding: 0 24px;
+  margin: 0 16px 0 0;
+  float: right;
+  line-height: 56px;
+  font-size: 16px;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all .5s ease;
+}
+#main-container .notice-page .toolbar button i {
+  padding: 0 0 0 10px;
+}
+#main-container .notice-page .toolbar button:hover {
+  color: #ffb74d;
+}
 #main-container .main-page {
   margin-left: 320px;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.26);
   background-color: white;
 }
 #main-container .main-page .header {
@@ -52,21 +80,20 @@ body {
   background-color: #00bcd4;
 }
 #main-container .main-page .header i {
-  display: inline-block;
+  padding: 0 16px 0 16px;
   font-size: 24px;
   line-height: 64px;
-  padding: 0 16px 0 16px;
-  cursor: pointer;
   color: white;
+  cursor: pointer;
 }
 #main-container .main-page .header .header-title {
   display: inline-block;
+  padding: 0 19px;
   font-size: 24px;
   font-weight: 400;
   line-height: 64px;
-  padding: 0 19px;
   color: white;
-  white-space: nowrap;
+  text-transform: capitalize;
 }
 #main-container .main-page .header .header-btn {
   position: fixed;
@@ -78,15 +105,19 @@ body {
   text-align: center;
   font-size: 24px;
   font-weight: 800;
-  color: #888;
   border-radius: 50%;
   border: 1px solid #aaa;
   cursor: pointer;
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.26);
+  transition: all .5s ease;
+}
+#main-container .main-page .header .header-btn i {
+  line-height: 54px;
+  color: #666;
 }
 #main-container .main-page .header .header-btn:hover {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.56);
+  transform: rotate(720deg);
 }
 #main-container .main-page .content-container {
   padding: 100px 32px;

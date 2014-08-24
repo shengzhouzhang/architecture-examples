@@ -24,7 +24,7 @@ body {
     bottom: 0;
     width: @notice-width;
     height: 100%;
-    z-index: -100;
+    // z-index: -100;
     background-color: #0097a7;
 
     .header {
@@ -32,11 +32,14 @@ body {
       height: 64px;
 
       .header-title {
-        color: white;
-        font-size: 20px;
-        line-height: 64px;
-        white-space: nowrap;
         padding: 0 24px;
+
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 64px;
+        color: white;
+        text-transform: capitalize;
+
         border-bottom: 1px solid #00bcd4;
       }
     }
@@ -49,11 +52,47 @@ body {
       border-radius: 2px;
       background-color: #eee;
     }
+
+    .toolbar {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: @notice-width;
+      line-height: 56px;
+      color: white;
+      border-top: 1px solid white;
+
+      button {
+        height: 56px;
+        padding: 0 24px;
+        margin: 0 16px 0 0;
+        float: right;
+
+        line-height: 56px;
+        font-size: 16px;
+        color: white;
+        text-transform: uppercase;
+
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+
+        transition: all .5s ease;
+
+        i {
+          padding: 0 0 0 10px;
+        }
+      }
+
+      button:hover {
+        color: #ffb74d;
+      }
+    }
   }
 
   .main-page {
     margin-left: @notice-width;
-    box-shadow: -2px 0 5px rgba(0,0,0,.26);
+    // box-shadow: -2px 0 5px rgba(0,0,0,.26);
 
     background-color: white;
 
@@ -68,22 +107,24 @@ body {
       background-color: #00bcd4;
 
       i {
-        display: inline-block;
+        padding: 0 16px 0 16px;
+
         font-size: 24px;
         line-height: 64px;
-        padding: 0 16px 0 16px;
-        cursor: pointer;
         color: white;
+
+        cursor: pointer;
       }
 
       .header-title {
         display: inline-block;
+        padding: 0 19px;
+
         font-size: 24px;
         font-weight: 400;
         line-height: 64px;
-        padding: 0 19px;
         color: white;
-        white-space: nowrap;
+        text-transform: capitalize;
       }
 
       .header-btn {
@@ -97,19 +138,24 @@ body {
         text-align: center;
         font-size: 24px;
         font-weight: 800;
-        color: #888;
 
         border-radius: 50%;
         border: 1px solid #aaa;
         cursor: pointer;
         background-color: white;
 
-        box-shadow: 0 2px 5px rgba(0,0,0,.26);
+        box-shadow: 0 0 5px rgba(0,0,0,.26);
+
+        transition: all .5s ease;
+
+        i {
+          line-height: 54px;
+          color: #666;
+        }
       }
 
       .header-btn:hover {
-
-        box-shadow: 0 2px 5px rgba(0,0,0,.56);
+        transform: rotate(720deg);
       }
     }
 
