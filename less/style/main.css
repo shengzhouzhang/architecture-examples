@@ -56,6 +56,7 @@ body {
   color: white;
   text-transform: uppercase;
   border: none;
+  outline: none;
   cursor: pointer;
   background-color: transparent;
   transition: all .5s ease;
