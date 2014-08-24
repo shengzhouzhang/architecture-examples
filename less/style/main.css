@@ -8,31 +8,38 @@ body {
   height: 100%;
   transition: all 0.3s ease-in;
 }
-#main-container .sidebar {
-  width: 77px;
-  height: 100%;
+#main-container .notice-page {
   position: fixed;
   left: 0;
   bottom: 0;
-  z-index: 100;
-  display: block;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.26);
-  display: none;
-  background-color: #00838f;
-}
-#main-container .extra {
-  position: fixed;
-  left: -283px;
-  bottom: 0;
-  width: 283px;
+  width: 320px;
   height: 100%;
   z-index: -100;
-  background-color: #e0f7fa;
-  display: none;
+  background-color: #0097a7;
+}
+#main-container .notice-page .header {
+  width: 100%;
+  height: 64px;
+}
+#main-container .notice-page .header .header-title {
+  color: white;
+  font-size: 20px;
+  line-height: 64px;
+  white-space: nowrap;
+  padding: 0 24px;
+  border-bottom: 1px solid #00bcd4;
+}
+#main-container .notice-page .notice-content {
+  width: 288px;
+  height: 288px;
+  margin: 16px auto 0 auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.56);
+  border-radius: 2px;
+  background-color: #eee;
 }
 #main-container .main-page {
-  height: 100%;
-  margin-left: 0;
+  margin-left: 320px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.26);
   background-color: white;
 }
 #main-container .main-page .header {
@@ -41,22 +48,30 @@ body {
   z-index: 200;
   width: 100%;
   height: 64px;
-  padding: 0 16px 0 16px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   background-color: #00bcd4;
 }
-#main-container .main-page .header .header-title {
+#main-container .main-page .header i {
+  display: inline-block;
+  font-size: 24px;
+  line-height: 64px;
+  padding: 0 16px 0 16px;
+  cursor: pointer;
   color: white;
+}
+#main-container .main-page .header .header-title {
+  display: inline-block;
   font-size: 24px;
   font-weight: 400;
   line-height: 64px;
-  margin: 0 20px;
+  padding: 0 19px;
+  color: white;
   white-space: nowrap;
 }
 #main-container .main-page .header .header-btn {
   position: fixed;
   top: 36px;
-  right: 36px;
+  right: 64px;
   width: 54px;
   height: 54px;
   line-height: 54px;
@@ -66,22 +81,26 @@ body {
   color: #888;
   border-radius: 50%;
   border: 1px solid #aaa;
+  cursor: pointer;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+#main-container .main-page .header .header-btn:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.56);
 }
 #main-container .main-page .content-container {
   padding: 100px 32px;
 }
 #main-container .main-page .content-container .grid-col {
   position: relative;
-  width: 223.5px;
-  height: 223.5px;
+  width: 256px;
+  height: 256px;
   display: inline-block;
   background-color: #eee;
 }
 @media (min-width: 1600px) {
   #main-container .main-page {
-    margin-left: 360px;
+    margin-left: 397px;
   }
   #main-container .extra {
     left: 77px;
